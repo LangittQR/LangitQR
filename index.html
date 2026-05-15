@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Langitt Style QR</title>
+
+  <!-- 🔥 ICON WEB (FAVICON) -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- QR CODE -->
+  <script src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+
+  <!-- DOWNLOAD FULL CARD -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- FORM -->
+    <div class="form-box">
+
+      <h1>Langitt QR</h1>
+
+      <input
+        type="text"
+        id="linkInput"
+        placeholder="Masukkan link profile"
+      >
+
+      <input
+        type="text"
+        id="nameInput"
+        placeholder="Username"
+      >
+
+      <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+      >
+
+      <!-- BUTTON -->
+      <div class="button-group">
+
+        <button onclick="generateQR()">
+          Generate
+        </button>
+
+        <button onclick="downloadQR()">
+          Download
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="card" id="card">
+
+      <div class="qr-area">
+        <div id="qr"></div>
+      </div>
+
+      <h2 id="displayName">your username</h2>
+
+      <p id="displayUser">@your username</p>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
