@@ -137,7 +137,7 @@ button:active{
 }
 
 /* =========================
-   CARD (ROBLOX STYLE)
+   CARD
 ========================= */
 .card{
   background:#ffffff;
@@ -149,38 +149,42 @@ button:active{
   text-align:center;
 
   box-shadow:0 18px 40px rgba(0,0,0,.12);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  /* spacing utama QR + text */
+  gap:16px;
 }
 
 /* =========================
-   QR AREA (KEY FIX)
+   QR AREA (FIX RESPONSIVE)
 ========================= */
 .qr-area{
   position:relative;
 
-  width:220px;
-  height:220px;
-
-  margin:auto;
+  /* ❗ penting: jangan fixed */
+  width:fit-content;
+  height:fit-content;
 
   display:flex;
   justify-content:center;
   align-items:center;
 
-  /* ✔ ROBLOX STYLE TILT */
   transform: rotate(11deg) translateY(-5px);
-
   transform-origin:center;
 
-  /* smooth feel */
   transition:transform .2s ease;
 }
 
 /* =========================
-   QR
+   QR (AUTO FOLLOW JS)
 ========================= */
 #qr{
-  width:220px;
-  height:220px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 /* =========================
@@ -201,16 +205,13 @@ button:active{
   padding:4px;
 
   box-shadow:0 6px 18px rgba(0,0,0,.20);
-
-  image-rendering:crisp-edges;
-  image-rendering:-webkit-optimize-contrast;
 }
 
 /* =========================
-   TEXT (FIX POSITION)
+   TEXT
 ========================= */
 h2{
-  margin-top:10px;
+  margin:0;
 
   font-size:26px;
   font-weight:700;
@@ -222,7 +223,7 @@ h2{
 }
 
 p{
-  margin-top:2px;
+  margin:0;
 
   font-size:16px;
   color:#555;
@@ -239,12 +240,7 @@ p{
   .card{
     padding:22px 16px;
     border-radius:26px;
-  }
-
-  .qr-area,
-  #qr{
-    width:200px;
-    height:200px;
+    gap:12px;
   }
 
   .center-logo{
@@ -259,5 +255,4 @@ p{
   p{
     font-size:15px;
   }
-
 }
