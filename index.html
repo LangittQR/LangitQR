@@ -7,7 +7,6 @@
 
   <title>Langitt Style QR</title>
 
-  <!-- 🔥 ICON WEB (FAVICON) -->
   <link rel="icon" type="image/png" href="logo.png">
 
   <link rel="stylesheet" href="style.css">
@@ -17,7 +16,6 @@
 
   <!-- DOWNLOAD FULL CARD -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 </head>
 
 <body>
@@ -29,35 +27,13 @@
 
       <h1>Langitt QR</h1>
 
-      <input
-        type="text"
-        id="linkInput"
-        placeholder="Masukkan link profile"
-      >
+      <input type="text" id="linkInput" placeholder="Masukkan link profile">
+      <input type="text" id="nameInput" placeholder="Username">
+      <input type="file" id="imageInput" accept="image/*">
 
-      <input
-        type="text"
-        id="nameInput"
-        placeholder="Username"
-      >
-
-      <input
-        type="file"
-        id="imageInput"
-        accept="image/*"
-      >
-
-      <!-- BUTTON -->
       <div class="button-group">
-
-        <button onclick="generateQR()">
-          Generate
-        </button>
-
-        <button onclick="downloadQR()">
-          Download
-        </button>
-
+        <button onclick="generateQR()">Generate</button>
+        <button onclick="downloadQR()">Download</button>
       </div>
 
     </div>
@@ -65,13 +41,17 @@
     <!-- CARD -->
     <div class="card" id="card">
 
-      <div class="qr-area">
-        <div id="qr"></div>
+      <!-- QR wrapper (lebih fleksibel untuk responsive scaling) -->
+      <div class="qr-area-wrapper">
+        <div class="qr-area">
+          <div id="qr"></div>
+        </div>
       </div>
 
-      <h2 id="displayName">your username</h2>
-
-      <p id="displayUser">@your username</p>
+      <div class="text-area">
+        <h2 id="displayName">your username</h2>
+        <p id="displayUser">@your username</p>
+      </div>
 
     </div>
 
