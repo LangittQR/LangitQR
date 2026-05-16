@@ -3,124 +3,256 @@
   padding:0;
   box-sizing:border-box;
   font-family:Arial,sans-serif;
+
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
   user-select:none;
+
+  -webkit-touch-callout:none;
+  -webkit-tap-highlight-color:transparent;
 }
 
 body{
   background:#e5e7eb;
   min-height:100vh;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   padding:20px;
+  overflow-x:hidden;
 }
 
-/* CONTAINER */
+/* HD RENDER */
+img,
+canvas{
+  image-rendering:crisp-edges;
+  image-rendering:-webkit-optimize-contrast;
+}
+
+/* =========================
+   CONTAINER
+========================= */
 .container{
   width:100%;
   max-width:420px;
 }
 
-/* FORM */
+/* =========================
+   FORM
+========================= */
 .form-box{
   background:#fff;
   padding:20px;
   border-radius:22px;
   margin-bottom:20px;
+
   box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
+/* =========================
+   TITLE
+========================= */
 h1{
   text-align:center;
   margin-bottom:20px;
+
   font-size:28px;
+  font-weight:700;
+  color:#111;
 }
 
-/* INPUT */
+/* =========================
+   INPUT
+========================= */
 input{
   width:100%;
   padding:14px;
-  margin-bottom:12px;
+
   border:none;
-  border-radius:14px;
   background:#f3f4f6;
+
+  border-radius:14px;
+  margin-bottom:14px;
+
+  font-size:15px;
+  outline:none;
+
+  transition:.25s ease;
+
+  -webkit-user-select:text;
+  user-select:text;
 }
 
-/* BUTTON */
+input:focus{
+  background:#eceff3;
+  box-shadow:0 0 0 3px rgba(0,0,0,.05);
+}
+
+/* =========================
+   BUTTON
+========================= */
 .button-group{
   display:flex;
   gap:12px;
+  margin-top:10px;
 }
 
 button{
   flex:1;
   padding:14px;
+
   border:none;
   border-radius:14px;
-  font-weight:bold;
+
+  font-size:16px;
+  font-weight:700;
+
   cursor:pointer;
+  transition:all .25s ease;
 }
 
+/* Generate */
 button:nth-child(1){
   background:#000;
   color:#fff;
 }
 
+/* Download */
 button:nth-child(2){
-  background:#ddd;
+  background:#e5e7eb;
+  color:#111;
 }
 
-/* CARD */
+button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+button:active{
+  transform:scale(.96);
+  box-shadow:0 5px 10px rgba(0,0,0,.1);
+}
+
+/* =========================
+   CARD
+========================= */
 .card{
-  background:#fff !important;
+  background:#ffffff;
+
   border-radius:28px;
+
   padding:26px 22px;
+
   text-align:center;
+
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
 
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:16px;
 
-  box-shadow:0 18px 40px rgba(0,0,0,.12);
+  /* spacing utama QR + text */
+  gap:16px;
 }
 
-/* QR AREA RESPONSIVE */
+/* =========================
+   QR AREA (FIX RESPONSIVE)
+========================= */
 .qr-area{
-  width:clamp(170px, 50vw, 240px);
-  aspect-ratio:1/1;
+  position:relative;
+
+  /* ❗ penting: jangan fixed */
+  width:fit-content;
+  height:fit-content;
 
   display:flex;
   justify-content:center;
   align-items:center;
 
-  transform:rotate(11deg);
+  transform: rotate(11deg) translateY(-5px);
+  transform-origin:center;
+
+  transition:transform .2s ease;
 }
 
-/* QR */
+/* =========================
+   QR (AUTO FOLLOW JS)
+========================= */
 #qr{
-  width:100%;
-  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* TEXT */
+/* =========================
+   LOGO CENTER
+========================= */
+.center-logo{
+  position:absolute;
+
+  width:55px;
+  height:55px;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  padding:4px;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.20);
+}
+
+/* =========================
+   TEXT
+========================= */
 h2{
   margin:0;
-  font-size:24px;
+
+  font-size:26px;
+  font-weight:700;
+
+  color:#222;
+
+  line-height:1.1;
+  word-break:break-word;
 }
 
 p{
   margin:0;
+
+  font-size:16px;
   color:#555;
+
+  line-height:1.1;
+  word-break:break-word;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 @media(max-width:480px){
+
   .card{
     padding:22px 16px;
+    border-radius:26px;
+    gap:12px;
   }
 
-  .qr-area{
-    transform:rotate(10deg);
+  .center-logo{
+    width:50px;
+    height:50px;
+  }
+
+  h2{
+    font-size:22px;
+  }
+
+  p{
+    font-size:15px;
   }
 }
